@@ -1,0 +1,32 @@
+Project Summary: Bajaj Finance Assistant Chatbot
+
+This project presents an intelligent document-based chatbot named Bajaj Finance Assistant, designed to answer user 
+queries by extracting and understanding information from PDF documents. Built using Langchain, Streamlit, and Ollama, 
+the bot leverages local language models for efficient and cost-effective deployment.
+
+🎯 Objective
+To create a responsive chatbot capable of answering questions based on the content of one or more PDF documents, 
+without relying on paid APIs like OpenAI.
+
+🛠️ Technologies Used
+- Langchain: For chaining components like document loaders, embeddings, and retrieval-based QA.
+- Streamlit: For building an interactive web interface.
+- Ollama + Gemma:2b: Local LLM used for generating answers without external API costs.
+- HuggingFace Embeddings: For converting document text into vector representations.
+- FAISS: For storing and retrieving document embeddings efficiently.
+- PDFMiner: For parsing PDF content.
+
+📌 Key Features
+- Automatically detects and processes PDF files from the documents folder.
+- Uses hashing to cache and reuse vector stores, improving performance.
+- Embeds document content using HuggingFace models and stores them with FAISS.
+- Retrieves relevant document chunks using semantic search.
+- Answers user queries using the Gemma:2b model via Ollama.
+- Displays sample extracted text for transparency and debugging.
+
+🚀 How It Works
+- PDF files are loaded and parsed using UnstructuredPDFLoader.
+- Text is embedded using sentence-transformers/all-MiniLM-L6-v2.
+- Embeddings are stored in a FAISS index, with caching based on file hash.
+- A retrieval-based QA chain is created using Langchain and Ollama.
+- Users interact via a Streamlit interface to ask questions and receive answers.
